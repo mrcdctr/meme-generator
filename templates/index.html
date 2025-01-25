@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+</head>
+<body>
+    <h1>Welcome to the Meme Generator</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Upload an image:</label>
+        <input type="file" name="file" id="file" required><br><br>
+
+        <label for="top_text">Top Text:</label>
+        <input type="text" name="top_text" id="top_text" placeholder="Enter top text"><br><br>
+
+        <label for="bottom_text">Bottom Text:</label>
+        <input type="text" name="bottom_text" id="bottom_text" placeholder="Enter bottom text"><br><br>
+
+        <button type="submit">Generate Meme</button>
+    </form>
+</body>
+</html>
