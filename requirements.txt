@@ -5,3 +5,54 @@
 - Flask
 - Pillow (PIL)
 - Tkinter (included with Python)
+
+Fixing the Font file not found Error
+Locate the arial.ttf Font File:
+
+On Windows: It's typically located in C:\Windows\Fonts\arial.ttf.
+On Linux: Install the font using:
+bash
+Copy
+Edit
+sudo apt update
+sudo apt install ttf-mscorefonts-installer
+It will typically be available at /usr/share/fonts/truetype/msttcorefonts/arial.ttf.
+On macOS: It's located in /Library/Fonts/Supplemental/Arial.ttf.
+Update the font_path: Modify the script to point to the correct font file path:
+
+python
+Copy
+Edit
+font_path = "C:\\Windows\\Fonts\\arial.ttf"  # For Windows
+font_path = "/usr/share/fonts/truetype/msttcorefonts/arial.ttf"  # For Linux
+font_path = "/Library/Fonts/Supplemental/Arial.ttf"  # For macOS
+Add the Font File to the Project Directory:
+
+Alternatively, copy the arial.ttf file into your project directory.
+Update the font_path in the script to use the local file:
+python
+Copy
+Edit
+font_path = "arial.ttf"
+Fallback Option for Missing Font: Modify the script to provide a fallback message if the font file is not found:
+
+python
+Copy
+Edit
+try:
+    font = ImageFont.truetype(font_path, font_size)
+except OSError:
+    raise FileNotFoundError("Font file not found. Please ensure 'arial.ttf' is available.")
+Additional Improvements
+Error Handling for File Paths in GUI: Ensure the entry_file field in the GUI is validated for empty or invalid paths.
+
+Add Default Font Handling: Use a default system font if arial.ttf is not available:
+
+python
+Copy
+Edit
+try:
+    font = ImageFont.truetype(font_path, font_size)
+except OSError:
+    font = ImageFont.load_default()
+Enhanced Feedback in GUI: Update the GUI to show a message when the meme creation is successful or fails.

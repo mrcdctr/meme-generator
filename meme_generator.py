@@ -25,7 +25,7 @@ def generate_meme(image_path, top_text, bottom_text):
         draw = ImageDraw.Draw(img)
 
         # Load a font
-        font_path = "arial.ttf"  # Ensure this font is available, or provide an alternative
+        font_path = "C:\\Windows\\Fonts\\arial.ttf"  # Provide a valid path to the font file
         if not os.path.exists(font_path):
             raise FileNotFoundError("Font file not found. Please provide a valid 'arial.ttf' path.")
 
